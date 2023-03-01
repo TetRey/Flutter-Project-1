@@ -4,7 +4,14 @@ import 'package:stockfm/pages/home.dart';
 import 'package:stockfm/pages/navbar.dart';
 import 'package:stockfm/pages/sign.dart';
 
-class loginPage extends StatelessWidget {
+var _obsecureText = true;
+
+class loginPage extends StatefulWidget {
+  @override
+  State<loginPage> createState() => _loginPageState();
+}
+
+class _loginPageState extends State<loginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,20 +64,33 @@ class loginPage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 10, left: 35, right: 35),
             child: SizedBox(
               width: 350,
-              child: TextField(
-                obscureText: true,
+              child: TextFormField(
+                obscureText: _obsecureText,
                 decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    filled: true,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24),
-                        borderSide: BorderSide.none),
-                    hintText: 'Password',
-                    hintStyle: GoogleFonts.openSans(
-                        color: Color.fromARGB(255, 45, 44, 44),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500),
-                    suffixIcon: Icon(Icons.visibility)),
+                  fillColor: Colors.white,
+                  filled: true,
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(24),
+                      borderSide: BorderSide.none),
+                  hintText: 'Password',
+                  hintStyle: GoogleFonts.openSans(
+                      color: Color.fromARGB(255, 45, 44, 44),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500),
+                  suffixIcon: IconButton(
+                    // style: IconButton.styleFrom(),
+                    icon: Icon(
+                      _obsecureText ? Icons.visibility_off : Icons.visibility,
+                      color: Theme.of(context).primaryColorDark,
+                    ),
+                    splashColor: Color.fromARGB(0, 0, 0, 0),
+                    onPressed: () {
+                      setState(() {
+                        _obsecureText = !_obsecureText;
+                      });
+                    },
+                  ),
+                ),
               ),
             ),
           ),

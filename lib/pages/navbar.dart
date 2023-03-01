@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:stockfm/pages/about.dart';
 import 'package:stockfm/pages/home.dart';
 import 'package:stockfm/pages/like.dart';
 import 'package:stockfm/pages/profile.dart';
@@ -27,10 +28,15 @@ class _NavbarState extends State<navbar> {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset(
-                'assets/images/Logo.png',
-                width: 100,
-                height: 40,
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => aboutUS()));
+                },
+                child: Ink.image(
+                    width: 100,
+                    height: 40,
+                    image: AssetImage('assets/images/Logo.png')),
               ),
               ElevatedButton(
                   onPressed: (() {

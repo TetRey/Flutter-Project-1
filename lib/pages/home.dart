@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stockfm/pages/barang.dart';
 import 'package:stockfm/pages/profile.dart';
 
 Color warnaNavy = Color.fromARGB(255, 11, 24, 52);
@@ -135,7 +136,12 @@ class Product extends StatelessWidget {
                             backgroundColor: warnaNavy,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(24))),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Barang()));
+                        },
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(2, 2, 2, 2),
                           child: Text(
@@ -223,7 +229,12 @@ class Popular extends StatelessWidget {
                             backgroundColor: warnaNavy,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(24))),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Barang()));
+                        },
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(2, 2, 2, 2),
                           child: Text(
