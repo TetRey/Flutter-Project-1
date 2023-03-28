@@ -4,13 +4,14 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:stockfm/pages/about.dart';
 import 'package:stockfm/pages/home.dart';
+import 'package:stockfm/pages/homepage.dart';
 import 'package:stockfm/pages/like.dart';
 import 'package:stockfm/pages/profile.dart';
 import 'package:stockfm/pages/search.dart';
 
 class navbar extends StatefulWidget {
   int currentIndex = 1;
-  List pages = [searchPage(), home(), likePage()];
+  List pages = [searchPage(), homePage(), likePage()];
 
   @override
   State<navbar> createState() => _NavbarState();
@@ -22,7 +23,7 @@ class _NavbarState extends State<navbar> {
     return Scaffold(
       appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Color(0xffD6802B),
+          backgroundColor: Color.fromARGB(255, 11, 24, 52),
           toolbarHeight: 70,
           elevation: 10,
           title: Row(
@@ -36,7 +37,7 @@ class _NavbarState extends State<navbar> {
                 child: Ink.image(
                     width: 100,
                     height: 40,
-                    image: AssetImage('assets/images/Logo.png')),
+                    image: AssetImage('assets/images/LogoWhite.png')),
               ),
               ElevatedButton(
                   onPressed: (() {
@@ -46,7 +47,7 @@ class _NavbarState extends State<navbar> {
                   style: ElevatedButton.styleFrom(
                       shape: CircleBorder(), elevation: 0),
                   child: const CircleAvatar(
-                    radius: 26,
+                    radius: 24,
                     backgroundImage: AssetImage('assets/images/Profile.jpg'),
                   )),
             ],

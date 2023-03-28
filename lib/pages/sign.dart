@@ -44,7 +44,7 @@ class signUp extends StatelessWidget {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(24),
                         borderSide: BorderSide.none),
-                    hintText: 'Nama',
+                    hintText: 'First Name',
                     hintStyle: GoogleFonts.openSans(
                         color: Color.fromARGB(255, 77, 78, 80),
                         fontSize: 14,
@@ -64,7 +64,7 @@ class signUp extends StatelessWidget {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(24),
                         borderSide: BorderSide.none),
-                    hintText: 'Nomer',
+                    hintText: 'Last Name',
                     hintStyle: GoogleFonts.openSans(
                         color: Color.fromARGB(255, 77, 78, 80),
                         fontSize: 14,
@@ -115,8 +115,31 @@ class signUp extends StatelessWidget {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.only(top: 15, left: 35, right: 35),
+            child: SizedBox(
+              height: 50,
+              width: 350,
+              child: TextFormField(
+                obscureText: true,
+                decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    filled: true,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(24),
+                        borderSide: BorderSide.none),
+                    hintText: 'Re-Password',
+                    hintStyle: GoogleFonts.openSans(
+                        color: Color.fromARGB(255, 77, 78, 80),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600),
+                    suffixIcon:
+                        InkWell(onTap: () {}, child: Icon(Icons.visibility))),
+              ),
+            ),
+          ),
           const SizedBox(
-            height: 50,
+            height: 30,
           ),
           Center(
             child: Container(

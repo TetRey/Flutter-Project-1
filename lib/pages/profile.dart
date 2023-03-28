@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stockfm/pages/home.dart';
+import 'package:stockfm/pages/login.dart';
 
 class profile extends StatelessWidget {
   @override
@@ -14,7 +15,7 @@ class profile extends StatelessWidget {
               children: [
                 const CircleAvatar(
                   foregroundImage: AssetImage('assets/images/Profile.jpg'),
-                  radius: 80,
+                  radius: 70,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 80, left: 76, right: 76),
@@ -108,29 +109,76 @@ class profile extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      "assets/images/logouticon.png",
-                      width: 22,
-                    ),
-                    SizedBox(
-                      width: .5,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Text(
-                        "Log Out",
-                        style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            letterSpacing: .5,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xffAA0000)),
+                InkWell(
+                    onTap: () async {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            backgroundColor: warnaNavy,
+                            title: Text("Logout",
+                                style: GoogleFonts.montserrat(
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xffAA0000))),
+                            content: Text("Apakah anda yakin ingin logout?",
+                                style: GoogleFonts.montserrat(
+                                    color: Colors.white)),
+                            actions: [
+                              ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: warnaOren, elevation: 0),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => loginPage()));
+                                  },
+                                  child: Text(
+                                    "Iya",
+                                    style: GoogleFonts.montserrat(
+                                        color: Colors.white),
+                                  )),
+                              ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: warnaNavy,
+                                    elevation: 0,
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text("Tidak",
+                                      style: TextStyle(color: Colors.white)))
+                            ],
+                          );
+                        },
+                      );
+                    },
+                    child: Container(
+                      width: 100,
+                      height: 20,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/images/logouticon.png",
+                            width: 22,
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Text(
+                            "Log out",
+                            style: GoogleFonts.poppins(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600,
+                                color: Color(0xffAA0000)),
+                          )
+                        ],
                       ),
-                    )
-                  ],
-                )
+                    ))
               ],
             ),
           ),

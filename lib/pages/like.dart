@@ -11,7 +11,7 @@ class likePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: warnaNavy,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,7 +20,9 @@ class likePage extends StatelessWidget {
             child: Text(
               "Wishlist",
               style: GoogleFonts.montserrat(
-                  fontSize: 24, fontWeight: FontWeight.w700, color: warnaNavy),
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white),
             ),
           ),
           Expanded(

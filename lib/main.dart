@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stockfm/pages/about.dart';
 import 'package:stockfm/pages/barang.dart';
+import 'package:stockfm/pages/homepage.dart';
 import 'package:stockfm/pages/started.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: getStarted(),
+      home: getStarted (),
     );
   }
 }

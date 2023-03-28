@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stockfm/pages/home.dart';
+import 'package:stockfm/component/warna.dart';
 
 class Barang extends StatelessWidget {
   @override
@@ -69,13 +70,42 @@ class Barang extends StatelessWidget {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: Text(
-                "Bata Putih",
-                style: GoogleFonts.montserrat(
-                    fontSize: 24, fontWeight: FontWeight.w700),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    "Bata Putih",
+                    style: GoogleFonts.montserrat(
+                        fontSize: 24, fontWeight: FontWeight.w700),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 15.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        CupertinoIcons.star_fill,
+                        color: warnaOren,
+                        size: 24,
+                      ),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 3.0),
+                        child: Text(
+                          "4/5",
+                          style: GoogleFonts.montserrat(
+                              fontSize: 18, fontWeight: FontWeight.w700),
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
             ),
             const SizedBox(
               height: 10,
@@ -83,13 +113,37 @@ class Barang extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 8.0, right: 15),
               child: Container(
-                height: 160,
+                height: 100,
                 child: const Scrollbar(
                     child: SingleChildScrollView(
                   child: Text(
-                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                    textAlign: TextAlign.justify,
+                  ),
                 )),
               ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Text.rich(TextSpan(
+                  text: 'Kategori :',
+                  style: GoogleFonts.montserrat(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                  ),
+                  children: <InlineSpan>[
+                    TextSpan(
+                        text: 'Material',
+                        style: GoogleFonts.montserrat(
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                        ))
+                  ])),
             ),
             const SizedBox(
               height: 28,
