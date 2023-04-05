@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stockfm/pages/home.dart';
+import '../component/warna.dart';
 import 'package:stockfm/pages/navbar.dart';
 import 'package:stockfm/pages/sign.dart';
 

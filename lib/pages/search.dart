@@ -44,7 +44,7 @@ class searchPage extends StatelessWidget {
                       onTap: () {},
                       child: Ink.image(
                         image: const AssetImage(
-                            "assets/images/OutdoorCategory.png"),
+                            "assets/images/Kategori/OutdoorCategory.png"),
                         width: 180,
                         height: 220,
                       ),
@@ -61,7 +61,7 @@ class searchPage extends StatelessWidget {
                       onTap: () {},
                       child: Ink.image(
                         image: const AssetImage(
-                            "assets/images/IndoorCategory.png"),
+                            "assets/images/Kategori/IndoorCategory.png"),
                         width: 180,
                         height: 220,
                       ),
@@ -83,7 +83,7 @@ class searchPage extends StatelessWidget {
                       onTap: () {},
                       child: Ink.image(
                         image: const AssetImage(
-                            "assets/images/MaterialCategory.png"),
+                            "assets/images/Kategori/MaterialCategory.png"),
                         width: 180,
                         height: 220,
                       ),
@@ -99,8 +99,8 @@ class searchPage extends StatelessWidget {
                     child: InkWell(
                       onTap: () {},
                       child: Ink.image(
-                        image:
-                            const AssetImage("assets/images/OtherCategory.png"),
+                        image: const AssetImage(
+                            "assets/images/Kategori/OtherCategory.png"),
                         width: 180,
                         height: 220,
                       ),

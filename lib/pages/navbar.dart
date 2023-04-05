@@ -3,7 +3,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:stockfm/pages/about.dart';
-import 'package:stockfm/pages/home.dart';
 import 'package:stockfm/pages/homepage.dart';
 import 'package:stockfm/pages/like.dart';
 import 'package:stockfm/pages/profile.dart';

@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:stockfm/pages/profile.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stockfm/pages/home.dart';
-
-Color warnaNavy = Color.fromARGB(255, 11, 24, 52);
-Color warnaOren = Color(0xffD6802B);
+import '../component/warna.dart';
 
 class likePage extends StatelessWidget {
   @override
@@ -29,7 +26,7 @@ class likePage extends StatelessWidget {
               child: Padding(
             padding: const EdgeInsets.only(left: 20),
             child: ListView(
-              children: [Product(), Product(), Product(), Product(), Product()],
+              children: [Container(width: 100,height: 100,color: warnaNavy,)],
             ),
           ))
         ],
