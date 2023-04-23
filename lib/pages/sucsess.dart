@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import '../component/warna.dart';
 import 'package:stockfm/pages/navbar.dart';
 
@@ -9,13 +10,13 @@ class sucsess extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 11, 24, 52),
       body: Padding(
-        padding: const EdgeInsets.only(top: 120),
+        padding: const EdgeInsets.only(top: 120, left: 40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('assets/images/sucsess.png'),
+            Lottie.asset("assets/lottie/success.json", height: 250),
             const SizedBox(
-              height: 40,
+              height: 80,
             ),
             Text(
               "Congrats! \nYou made new an account.",
@@ -27,7 +28,7 @@ class sucsess extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             Container(
               width: 300,
@@ -49,7 +50,7 @@ class sucsess extends StatelessWidget {
               height: 35,
               child: TextButton(
                   onPressed: () {
-                    Navigator.push(context,
+                    Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) => navbar()));
                   },
                   style: TextButton.styleFrom(

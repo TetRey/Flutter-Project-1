@@ -1,23 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:stockfm/models/model.dart';
 import '../component/warna.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../pages/barang.dart';
 
 class Product extends StatelessWidget {
-  final String judulProduct;
-  final String deskripsiProduct;
-  final int hargaProduct;
-  final String imageProduct;
-
-  const Product(
-      {super.key,
-      required this.judulProduct,
-      required this.deskripsiProduct,
-      required this.hargaProduct,
-      required this.imageProduct});
-
+  
   @override
   Widget build(BuildContext context) {
+    final data = Provider.of<productModel>(context);
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
       child: Container(
@@ -35,10 +27,7 @@ class Product extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.network(
-              imageProduct,
-              width: 100,
-            ),
+            Image.asset(data.image),
             Padding(
               padding: const EdgeInsets.only(top: 10, left: 7),
               child: Column(
@@ -48,7 +37,7 @@ class Product extends StatelessWidget {
                     width: 260,
                     height: 20,
                     child: Text(
-                      judulProduct,
+                      data.judul,
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w700,
@@ -65,7 +54,7 @@ class Product extends StatelessWidget {
                     width: 260,
                     height: 40,
                     child: Text(
-                      deskripsiProduct,
+                      data.deskripsi,
                       maxLines: 2,
                       style: GoogleFonts.montserrat(
                         fontWeight: FontWeight.w500,
@@ -95,7 +84,7 @@ class Product extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(2, 2, 2, 2),
                           child: Text(
-                            hargaProduct.toString(),
+                            "Learn More",
                             style: GoogleFonts.openSans(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,

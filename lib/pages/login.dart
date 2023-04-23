@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import '../component/warna.dart';
 import 'package:stockfm/pages/navbar.dart';
 import 'package:stockfm/pages/sign.dart';
@@ -20,15 +21,12 @@ class _loginPageState extends State<loginPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 100, left: 75, right: 75),
-            child: Image.asset(
-              'assets/images/login.png',
-              width: 250,
-            ),
-          ),
           const SizedBox(
-            height: 35,
+            height: 30,
+          ),
+          Center(child: Lottie.asset("assets/lottie/login.json", height: 300)),
+          const SizedBox(
+            height: 1,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 40),
@@ -116,7 +114,7 @@ class _loginPageState extends State<loginPage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(24))),
                   onPressed: () {
-                    Navigator.push(context,
+                    Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) => navbar()));
                   },
                   child: Text(
@@ -143,7 +141,7 @@ class _loginPageState extends State<loginPage> {
                   width: 5,
                 ),
                 InkWell(
-                  onTap: () => Navigator.push(context,
+                  onTap: () => Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => signUp())),
                   child: Text(
                     'Sign Up',

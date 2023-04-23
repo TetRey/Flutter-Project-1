@@ -4,22 +4,21 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:stockfm/pages/barang.dart';
 import 'package:stockfm/component/warna.dart';
+import 'package:stockfm/provider/provider.dart';
 import '../models/model.dart';
 import '../widget/Carousel.dart';
 import '../widget/Product.dart';
 
 class homePage extends StatelessWidget {
   homePage({super.key});
-  Faker faker = Faker();
 
   @override
   Widget build(BuildContext context) {
-    List<produtModel> dummyData = List.generate(10, (index) {
-      return produtModel(faker.food.restaurant(), faker.lorem.sentence(),
-          Random().nextInt(100000), "https://picsum.photos/id/$index/100/100");
-    });
+    final data = Provider.of<all_product>(context);
+    final dataMain = data.allproduct;
 
     return Scaffold(
         backgroundColor: warnaNavy,
@@ -60,14 +59,9 @@ class homePage extends StatelessWidget {
             child: ListView.builder(
               shrinkWrap: true,
               physics: ScrollPhysics(),
-              itemBuilder: (context, index) {
-                return Product(
-                    judulProduct: dummyData[index].judul,
-                    deskripsiProduct: dummyData[index].deskripsi,
-                    hargaProduct: dummyData[index].harga,
-                    imageProduct: dummyData[index].image);
-              },
-              itemCount: dummyData.length,
+              itemBuilder: (context, index) => ChangeNotifierProvider.value(
+                  value: dataMain[index], child: Product()),
+              itemCount: 5,
             ),
           ),
         ]));

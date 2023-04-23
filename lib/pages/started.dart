@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stockfm/pages/login.dart';
+import 'package:lottie/lottie.dart';
 
 class getStarted extends StatelessWidget {
   @override
@@ -11,12 +12,12 @@ class getStarted extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(top: 70),
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          Image.asset(
-            'assets/images/get_start.png',
-            width: 350,
-          ),
           const SizedBox(
-            height: 180,
+            height: 90,
+          ),
+          Lottie.asset("assets/lottie/hello.json", width: 350),
+          const SizedBox(
+            height: 90,
           ),
           Text(
             'Welcome to Stock FM',
@@ -37,7 +38,7 @@ class getStarted extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              Navigator.push(context,
+              Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => loginPage()));
             },
             iconSize: 70,
