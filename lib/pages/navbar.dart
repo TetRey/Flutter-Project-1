@@ -7,6 +7,7 @@ import 'package:stockfm/pages/homepage.dart';
 import 'package:stockfm/pages/like.dart';
 import 'package:stockfm/pages/profile.dart';
 import 'package:stockfm/pages/search.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 class navbar extends StatefulWidget {
   int currentIndex = 1;
@@ -17,6 +18,7 @@ class navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<navbar> {
+  final auth.FirebaseAuth _firebaseAuth = auth.FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,9 +47,11 @@ class _NavbarState extends State<navbar> {
                   }),
                   style: ElevatedButton.styleFrom(
                       shape: CircleBorder(), elevation: 0),
-                  child: const CircleAvatar(
+                  child: CircleAvatar(
                     radius: 24,
-                    backgroundImage: AssetImage('assets/images/Profile.jpg'),
+                    backgroundImage: NetworkImage(_firebaseAuth
+                            .currentUser!.photoURL ??
+                        "gs://stockfm-fd4d2.appspot.com/images/1686494533979"),
                   )),
             ],
           )),

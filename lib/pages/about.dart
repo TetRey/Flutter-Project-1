@@ -27,7 +27,7 @@ class aboutUS extends StatelessWidget {
             ),
             profile2(),
             const SizedBox(
-              height: 190,
+              height: 100,
             ),
             Text(
               "v 1.0",
@@ -73,6 +73,7 @@ class profile2 extends StatelessWidget {
               child: Image.asset(
                 "assets/images/fotoferry.jpg",
                 height: 140,
+                width: 140 ,
               ),
             ),
           ),
@@ -92,7 +93,7 @@ class profile2 extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "Mahasiswa Sistem Informasi",
+                  "Sistem Informasi",
                   overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.montserrat(
                       fontSize: 14,
@@ -146,6 +147,7 @@ class profile1 extends StatelessWidget {
               child: Image.asset(
                 "assets/images/Profile.jpg",
                 height: 140,
+                width: 140,
               ),
             ),
           ),
@@ -165,7 +167,7 @@ class profile1 extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "Mahasiswa Sistem Informasi",
+                  "Sistem Informasi",
                   overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.montserrat(
                       fontSize: 14,

@@ -3,11 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:stockfm/component/warna.dart';
+import 'package:stockfm/provider/favorit.dart';
 
 class Barang extends StatelessWidget {
+  String id;
+  String image;
+  String judul;
+  String kategori;
+  String deskripsi;
+  int harga;
+
+  Barang(this.id, this.image, this.deskripsi, this.harga, this.judul, this.kategori,
+      {super.key});
   @override
   Widget build(BuildContext context) {
+    final favButton = Provider.of<favProvider>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -48,7 +60,7 @@ class Barang extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(40),
                   child: Image.asset(
-                    "assets/images/Bata_putih.png",
+                    image,
                     width: 50,
                   ),
                 ),
@@ -61,7 +73,7 @@ class Barang extends StatelessWidget {
               children: [
                 IconButton(
                     iconSize: 32,
-                    onPressed: () {},
+                    onPressed: () {favButton.AddFav(id, judul, deskripsi, harga, image, kategori);},
                     icon: Icon(Icons.favorite_border)),
                 Text(
                   "Like",
@@ -76,7 +88,7 @@ class Barang extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: Text(
-                    "Bata Putih",
+                    judul,
                     style: GoogleFonts.montserrat(
                         fontSize: 24, fontWeight: FontWeight.w700),
                   ),
@@ -114,10 +126,10 @@ class Barang extends StatelessWidget {
               padding: const EdgeInsets.only(left: 8.0, right: 15),
               child: Container(
                 height: 100,
-                child: const Scrollbar(
+                child: Scrollbar(
                     child: SingleChildScrollView(
                   child: Text(
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                    deskripsi,
                     textAlign: TextAlign.justify,
                   ),
                 )),
@@ -129,7 +141,7 @@ class Barang extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: Text.rich(TextSpan(
-                  text: 'Kategori :',
+                  text: 'Kategori : ',
                   style: GoogleFonts.montserrat(
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontWeight: FontWeight.w700,
@@ -137,7 +149,7 @@ class Barang extends StatelessWidget {
                   ),
                   children: <InlineSpan>[
                     TextSpan(
-                        text: 'Material',
+                        text: kategori,
                         style: GoogleFonts.montserrat(
                           color: Color.fromARGB(255, 0, 0, 0),
                           fontWeight: FontWeight.w500,
@@ -154,7 +166,7 @@ class Barang extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Rp. 5.000,00/Item",
+                    "$harga/Item",
                     style: GoogleFonts.montserrat(
                         fontSize: 24,
                         fontWeight: FontWeight.w600,

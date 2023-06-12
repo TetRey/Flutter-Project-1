@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../pages/barang.dart';
 
 class Product extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
     final data = Provider.of<productModel>(context);
@@ -34,8 +33,8 @@ class Product extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    width: 260,
-                    height: 20,
+                    width: 220,
+                    height: 24,
                     child: Text(
                       data.judul,
                       overflow: TextOverflow.ellipsis,
@@ -51,7 +50,7 @@ class Product extends StatelessWidget {
                   ),
                   Flexible(
                       child: Container(
-                    width: 260,
+                    width: 140,
                     height: 40,
                     child: Text(
                       data.deskripsi,
@@ -79,7 +78,13 @@ class Product extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Barang()));
+                                  builder: (context) => Barang(
+                                      data.id,
+                                      data.image,
+                                      data.deskripsi,
+                                      data.harga,
+                                      data.judul,
+                                      data.kategori)));
                         },
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(2, 2, 2, 2),

@@ -1,24 +1,42 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:stockfm/pages/editProfile.dart';
+import 'package:stockfm/pages/wrapper.dart';
+import 'package:stockfm/provider/auth_service.dart';
 import '../component/warna.dart';
 import 'package:stockfm/pages/login.dart';
 
 class profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<AuthService>(context);
+    final UserData = FirebaseAuth.instance.currentUser;
     return Scaffold(
         backgroundColor: warnaNavy,
         body: Center(
           child: Padding(
-            padding: const EdgeInsets.only(top: 100),
+            padding: const EdgeInsets.only(top: 60),
             child: Column(
               children: [
-                const CircleAvatar(
-                  foregroundImage: AssetImage('assets/images/Profile.jpg'),
+                Text(
+                  "Profile",
+                  style: GoogleFonts.poppins(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w600,
+                      color: warnaOren),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CircleAvatar(
+                  foregroundImage: NetworkImage(UserData!.photoURL ??
+                      "gs://stockfm-fd4d2.appspot.com/images/1686494533979"),
                   radius: 70,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 80, left: 76, right: 76),
+                  padding: const EdgeInsets.only(top: 60, left: 76, right: 76),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -30,32 +48,10 @@ class profile extends StatelessWidget {
                         width: 28,
                       ),
                       Text(
-                        "Reyhan Eldwin Maulana",
+                        UserData!.displayName.toString(),
                         style: GoogleFonts.poppins(
                             fontSize: 17,
                             fontWeight: FontWeight.w600,
-                            color: warnaOren),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 30, left: 76, right: 76),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        'assets/images/callicon.png',
-                        width: 22,
-                      ),
-                      const SizedBox(
-                        width: 28,
-                      ),
-                      Text(
-                        "+6282111633069",
-                        style: GoogleFonts.poppins(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w400,
                             color: warnaOren),
                       ),
                     ],
@@ -74,7 +70,7 @@ class profile extends StatelessWidget {
                         width: 28,
                       ),
                       Text(
-                        "reyhaneldwin31@gmail.com",
+                        UserData!.email.toString(),
                         style: GoogleFonts.poppins(
                             fontSize: 17,
                             fontWeight: FontWeight.w400,
@@ -84,28 +80,31 @@ class profile extends StatelessWidget {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 30, left: 76, right: 76),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        'assets/images/locationicon.png',
-                        width: 22,
-                      ),
-                      const SizedBox(
-                        width: 28,
-                      ),
-                      Text(
-                        "Lamongan",
-                        style: GoogleFonts.poppins(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w400,
-                            color: warnaOren),
-                      ),
-                    ],
-                  ),
+                const SizedBox(
+                  height: 20,
                 ),
+                Container(
+                    width: 140,
+                    height: 40,
+                    child: TextButton(
+                      child: Text(
+                        "Change Profile",
+                        style: GoogleFonts.openSans(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      style: TextButton.styleFrom(
+                          backgroundColor: Color(0xffD6802B),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(24))),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => editProfile())));
+                      },
+                    )),
                 const SizedBox(
                   height: 20,
                 ),
@@ -129,11 +128,18 @@ class profile extends StatelessWidget {
                               ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: warnaOren, elevation: 0),
-                                  onPressed: () {
-                                    Navigator.push(
+                                  onPressed: () async {
+                                    await authService.signOut();
+                                    // Navigator.popUntil(
+                                    //     context, ModalRoute.withName('/'));
+
+                                    Navigator.of(context)
+                                        .popUntil((route) => route.isFirst);
+                                    Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => loginPage()));
+                                            builder: (BuildContext context) =>
+                                                loginPage()));
                                   },
                                   child: Text(
                                     "Iya",

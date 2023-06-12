@@ -61,7 +61,7 @@ class homePage extends StatelessWidget {
               physics: ScrollPhysics(),
               itemBuilder: (context, index) => ChangeNotifierProvider.value(
                   value: dataMain[index], child: Product()),
-              itemCount: 5,
+              itemCount: dataMain.length,
             ),
           ),
         ]));

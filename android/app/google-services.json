@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "167477409716",
+    "project_id": "stockfm-fd4d2",
+    "storage_bucket": "stockfm-fd4d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167477409716:android:e5c18b2a9ab918781064e1",
+        "android_client_info": {
+          "package_name": "com.example.stockfm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167477409716-bsltofa4grk0pfijpipiuvi2touv1vhg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW0wx4p8JfRpbM4IFa_x-pQqibaQcvcKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167477409716-bsltofa4grk0pfijpipiuvi2touv1vhg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
